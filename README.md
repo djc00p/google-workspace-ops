@@ -1,42 +1,94 @@
-# google-workspace-ops
+# 📄 Google Workspace Ops
 
-[![ClawHub Skill](https://img.shields.io/badge/ClawHub-Skill-blue)](https://clawhub.ai/djc00p/skills/google-workspace-ops)
+[![ClawHub Skill](https://img.shields.io/badge/ClawHub-Skill-blue)](https://clawhub.ai/djc00p/google-workspace-ops) [![Agent Skill](https://img.shields.io/badge/Agent-Skill-blue)](#) [![Google Workspace](https://img.shields.io/badge/Google-Workspace-4285F4.svg)](https://workspace.google.com) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Operate across Google Drive, Docs, Sheets, and Slides as unified workflow. Find, summarize, edit, migrate, or clean shared documents. Trigger phrases: find doc, update spreadsheet, consolidate sheets, import deck, clean up Google Drive, restructure slides. Adapted from everything-claude-code by @affaan-m (MIT)
+**Google Workspace Ops** operates Google Drive, Docs, Sheets, and Slides as a unified workflow system — find, summarize, edit, migrate, and clean up shared documents.
+
+The hard part of shared-document work isn't editing a file. It's knowing **which** file is canonical when there are three versions, and not breaking the one your team actually relies on. This skill front-loads discovery and inspection so edits land in the right place.
+
+---
+
+## 🎯 When to Use
+
+* Finding and updating a doc in place
+* Consolidating plans, trackers, or notes across files
+* Cleaning or restructuring a shared spreadsheet
+* Importing, repairing, or reformatting slides
+* Summarizing Docs, Sheets, or Slides for decisions
 
 ---
 
-## Install
+## 🔄 The Four-Step Workflow
 
-Install from ClawHub:
+### Step 1 — Find the Asset
 
-```bash
-clawhub install google-workspace-ops
-```
+Start with Google Drive search to locate:
 
-Or clone this repo and add the skill folder to your agent's skills path.
+* The exact file
+* **Sibling or duplicate assets**
+* Recently modified versions
 
-## Usage
+Confirm by title, owner, modified time, or folder.
 
-This skill activates automatically when a request matches its description.
-See `SKILL.md` for the full instructions the agent follows.
+### Step 2 — Inspect Before Editing
 
-## Repository layout
+Summarize the current structure:
 
-```
-SKILL.md      # agent instructions
-LICENSE       # MIT-0 / MIT
-README.md     # this file
-```
+* Tabs, headings, slide count
+* Whether the task is cleanup or structural surgery
+* **Pick the smallest tool that works safely**
 
-## Versions
+### Step 3 — Edit with Precision
 
-Releases track the published ClawHub versions.
+* **Docs** — use index-aware edits, not vague rewrites
+* **Sheets** — operate on explicit tabs and ranges
+* **Slides** — distinguish content edits from layout/template changes
 
-| Version | ClawHub |
-| --- | --- |
-| 1.0.1 | [google-workspace-ops v1.0.1](https://clawhub.ai/djc00p/skills/google-workspace-ops) |
+> Iterate with **inspect → verify** rather than one blind update.
+
+### Step 4 — Keep Systems Clean
+
+Surface as part of the work:
+
+* Duplicate trackers or decks
+* Stale vs. canonical docs
+* Archive/merge candidates
 
 ---
+
+## 📋 Output Format
+
+```text
+ASSET: [name, type, why this one]
+CURRENT STATE: [structure, key problems]
+ACTION: [edits made or recommended]
+FOLLOW-UPS: [archive, merge, clean, next steps]
+```
+
+---
+
+## ✅ Good Use Cases
+
+* *"Find the active planning doc and condense it"*
+* *"Clean up the customer spreadsheet and show churn-risk rows"*
+* *"Import this deck into Slides and make it presentable"*
+* *"Find the current tracker, not the stale duplicate"*
+
+---
+
+## 🔐 Setup
+
+Requires `GOOGLE_APPLICATION_CREDENTIALS` pointing at a service-account credentials file with access to the target Drive.
+
+---
+
+## 📚 References
+
+* `references/drive-operations.md` — Drive search, file metadata, and duplication detection
+* `references/docs-sheets-slides.md` — format-specific edit patterns
+
+---
+
+**Adapted from [everything-claude-code](https://github.com/affanm/everything-claude-code) by [@affaan-m](https://github.com/affaan-m) (MIT).**
 
 **Published by [@djc00p](https://github.com/djc00p)**
